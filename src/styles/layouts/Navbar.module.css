@@ -1,0 +1,427 @@
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  max-width: 100vw;
+  height: 70px;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbarContainer.scrolled {
+  background: rgba(18, 18, 18, 0.616);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.22);
+}
+
+.logoName {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: #ffffff;
+  margin: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: "Syne", sans-serif;
+  white-space: nowrap;
+}
+
+.navLinks {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li.active {
+  color: #ffffff;
+}
+
+.navLinks li a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 6px 2px;
+  white-space: nowrap;
+}
+
+.navLinks li a:hover {
+  color: #ffffff;
+}
+
+.navLinks li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2.5px;
+  bottom: -2px;
+  left: 50%;
+  background: linear-gradient(90deg, #556652, #b3ea87);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.navLinks li a:hover::after,
+.navLinks li.active a::after {
+  width: 65%;
+}
+
+.navbarUser {
+  color: #e0e0e0;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.566);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+}
+
+.navbarUser:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  scale: 1.1;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 0;
+  transition: background 0.25s ease;
+  flex-shrink: 0;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hLine {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  transform-origin: center;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1001;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 88vw);
+  height: 100vh;
+  z-index: 1002;
+  background: rgba(10, 12, 10, 0.96);
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 22px 32px 22px;
+  overflow-y: auto;
+  gap: 0;
+}
+
+.drawerLogo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 28px 0;
+  font-family: "Syne", sans-serif;
+}
+
+.drawerLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerLinks li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.drawerLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 2px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: color 0.25s ease;
+}
+
+.drawerLink:hover {
+  color: #ffffff;
+}
+
+.drawerActive .drawerLink {
+  color: #D2FFAF;
+}
+
+.drawerArrow {
+  opacity: 0.3;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.drawerLink:hover .drawerArrow {
+  opacity: 0.85;
+  transform: translateX(4px);
+}
+
+.productsSection {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.productsTitle {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.productCards {
+  display: flex;
+  gap: 10px;
+}
+
+.productCard {
+  flex: 1;
+  height: 130px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.productImg {
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.productName {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.productPrice {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.drawerActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btnPrimary {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(210, 255, 175, 0.15);
+  border: 1px solid rgba(210, 255, 175, 0.3);
+  color: #D2FFAF;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: rgba(210, 255, 175, 0.22);
+}
+
+.btnSecondary {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.drawerUser {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawerUserText {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .navLinks {
+    gap: 2rem;
+  }
+
+  .navLinks li a {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .navLinks {
+    gap: 1.4rem;
+  }
+
+  .navbarContainer {
+    padding: 0 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbarContainer {
+    padding: 0 6vw;
+    height: 64px;
+  }
+
+  .logoName {
+    font-size: 1.35rem;
+  }
+
+  .navbarUser {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbarContainer {
+    padding: 0 5vw;
+    height: 60px;
+  }
+
+  .logoName {
+    font-size: 1.2rem;
+  }
+
+  .drawer {
+    width: 100vw;
+    border-left: none;
+  }
+
+  .productCards {
+    flex-direction: column;
+  }
+
+  .productCard {
+    height: 100px;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    justify-content: space-between;
+  }
+
+  .productImg {
+    position: relative;
+    top: unset;
+    right: unset;
+    width: 50px;
+    height: 50px;
+  }
+}
