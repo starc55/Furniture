@@ -22,6 +22,7 @@
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: #1f2422;
+    font-family: "Syne", sans-serif;
 }
 
 .desc {
@@ -188,15 +189,104 @@
         align-items: stretch;
     }
 
-    .left {
+    .left { 
         flex: initial;
     }
 
     .right {
         grid-template-columns: 1fr;
+        gap: 5rem;
     }
 
     .desc {
         max-width: 520px;
+    }
+}
+
+.partnerSection {
+    margin-top: 90px;
+    padding-top: 30px;
+}
+
+.partnerTop {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.partnerLabel {
+    display: inline-block;
+    font-size: 12px; 
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 10px;
+}
+
+.partnerTitle {
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin: 0;
+    font-family: "Syne", sans-serif;
+}
+
+.marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 14px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marqueeTrack {
+    display: flex;
+    width: max-content;
+    gap: 18px;
+    animation: partnerScroll 26s linear infinite;
+}
+
+.marquee:hover .marqueeTrack {
+    animation-play-state: paused;
+}
+
+.partnerCard {
+    min-width: 220px;
+    height: 78px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.partnerCard span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2b2b2b;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.partnerCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+@keyframes partnerScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }

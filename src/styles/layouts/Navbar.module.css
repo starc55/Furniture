@@ -71,7 +71,7 @@
   height: 2.5px;
   bottom: -2px;
   left: 50%;
-  background: linear-gradient(90deg, #556652, #b3ea87);
+  background: linear-gradient(90deg, #c7f9be, #006e21);
   transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   transform: translateX(-50%);
   border-radius: 2px;

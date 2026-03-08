@@ -12,6 +12,17 @@ const products = [
   { id: 3, title: "Ergonomic Chair", price: "$88.00", image: f3 },
 ];
 
+const partners = [
+  "IKEA",
+  "Herman Miller",
+  "Steelcase",
+  "Ashley",
+  "West Elm",
+  "Kartell",
+  "BoConcept",
+  "Habitat",
+];
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -46,6 +57,31 @@ const floatImg = {
     rotate: -0.6,
     transition: { type: "spring", stiffness: 260, damping: 18 },
   },
+};
+
+const PartnerMarquee = () => {
+  const loopItems = [...partners, ...partners];
+
+  return (
+    <div className={styles.partnerSection}>
+      <div className={styles.partnerTop}>
+        <span className={styles.partnerLabel}>Furniture Partners</span>
+        <h3 className={styles.partnerTitle}>
+          Biz bilan ishlayotgan ishonchli hamkorlar
+        </h3>
+      </div>
+
+      <div className={styles.marquee}>
+        <div className={styles.marqueeTrack}>
+          {loopItems.map((item, index) => (
+            <div className={styles.partnerCard} key={`${item}-${index}`}>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const Intro = () => {
@@ -113,7 +149,7 @@ const Intro = () => {
                 <div className={styles.price}>{p.price}</div>
               </div>
 
-              <div
+              <motion.div
                 className={styles.dot}
                 aria-hidden="true"
                 whileHover={{ scale: 1.08 }}
@@ -123,6 +159,8 @@ const Intro = () => {
           ))}
         </motion.div>
       </div>
+
+      <PartnerMarquee />
     </section>
   );
 };
